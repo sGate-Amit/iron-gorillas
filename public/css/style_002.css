@@ -484,6 +484,7 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
+.site-branding{widht:150px;}
 .container, .single-product .woocommerce-notices-wrapper, .single-product:not(.left-sidebar) .single-product__v4 .woocommerce-tabs, .single-product:not(.right-sidebar) .single-product__v4 .woocommerce-tabs, .page-template-default.page #comments {
   width: 100%;
   padding-right: 15px;
