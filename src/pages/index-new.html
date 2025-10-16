@@ -10,11 +10,14 @@
 </html>
 <script>
 let searchIndex = [];
-
 async function loadIndex() {
   try {
-    const response = await fetch('search-index.json');
+    const response = await fetch('search-index.json'); // relative path
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+    }
     searchIndex = await response.json();
+    console.log('Search index loaded:', searchIndex);
   } catch (e) {
     console.error('Error loading search index:', e);
   }
