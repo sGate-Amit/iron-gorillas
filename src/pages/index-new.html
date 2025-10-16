@@ -1,1 +1,53 @@
+<html>
+  
+<section style="max-width:600px;margin:40px auto;text-align:center;">
+  <h2>Search Our Site</h2>
+  <input type="text" id="search" placeholder="Search..." 
+         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;font-size:16px;">
+  <ul id="results" style="list-style:none;padding:0;margin-top:20px;text-align:left;"></ul>
+</section>
+
+</html>
+<script>
+let searchIndex = [];
+
+async function loadIndex() {
+  try {
+    const response = await fetch('/search-index.json');
+    searchIndex = await response.json();
+  } catch (e) {
+    console.error('Error loading search index:', e);
+  }
+}
+
+function searchSite(query) {
+  query = query.toLowerCase();
+  return searchIndex.filter(item =>
+    item.title.toLowerCase().includes(query) ||
+    item.content.toLowerCase().includes(query)
+  );
+}
+
+function renderResults(results) {
+  const container = document.getElementById('results');
+  if (!results.length) {
+    container.innerHTML = '<li>No results found.</li>';
+    return;
+  }
+
+  container.innerHTML = results.map(r => `
+    <li style="margin:10px 0;">
+      <a href="${r.url}" style="font-weight:bold;color:#0078ff;text-decoration:none;">${r.title}</a><br>
+      <small>${r.content.substring(0, 100)}...</small>
+    </li>
+  `).join('');
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  const results = searchSite(e.target.value.trim());
+  renderResults(results);
+});
+
+loadIndex();
+</script>
 
