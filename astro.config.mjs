@@ -9,12 +9,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://example.com",
   integrations: [mdx(), sitemap()],
-   vite: {
-    build: {
-      sourcemap: false, // Saves RAM
-      minify: true, // Optional
-    },
-  adapter: cloudflare({
+   adapter: cloudflare({
     platformProxy: {
       enabled: true,
     },
