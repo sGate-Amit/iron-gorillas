@@ -1,12 +1,17 @@
-import { defineConfig } from 'astro/config';
-import staticAdapter from '@astrojs/static';
+// @ts-check
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 
+import cloudflare from "@astrojs/cloudflare";
+
+// https://astro.build/config
 export default defineConfig({
-  adapter: staticAdapter(),
-  output: 'static',
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/noop',
+  site: "https://example.com",
+  integrations: [mdx(), sitemap()],
+   adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
     },
-  },
+  }),
 });
