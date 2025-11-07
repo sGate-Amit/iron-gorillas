@@ -1,6 +1,8 @@
-import { defineConfig } from 'astro/config';
-import staticAdapter from '@astrojs/static';
+import { defineConfig } from "astro/config";
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  adapter: staticAdapter(),
-});
+  adapter: cloudflare({
+     imageService: 'cloudflare'
+  }),
+})
