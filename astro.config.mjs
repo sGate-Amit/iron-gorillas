@@ -1,9 +1,17 @@
+// @ts-check
 import { defineConfig } from "astro/config";
-import staticAdapter from "@astrojs/static";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 
+import cloudflare from "@astrojs/cloudflare";
+
+// https://astro.build/config
 export default defineConfig({
-  adapter: staticAdapter(),
-  image: {
-    service: "astro/assets/services/sharp", // optional if you use images
-  },
+  site: "https://example.com",
+  integrations: [mdx(), sitemap()],
+   adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+    },
+  }),
 });
