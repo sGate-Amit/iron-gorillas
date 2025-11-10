@@ -15,7 +15,7 @@
     "publish": true
   },
   "dependencies": {
-     "@astrojs/static": "^0.3.0", // Example version, use the latest
+     "@astrojs/static": "^0.3.0",
     "@astrojs/cloudflare": "12.6.0",
     "@astrojs/mdx": "4.3.0",
     "@astrojs/rss": "4.0.11",
