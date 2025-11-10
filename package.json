@@ -14,8 +14,7 @@
     "preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/33bbbf02-eda2-4d3f-b244-c27a280f3900/public",
     "publish": true
   },
-  "dependencies": {
-     "@astrojs/static": "^0.3.0",
+  "dependencies": {     
     "@astrojs/cloudflare": "12.6.0",
     "@astrojs/mdx": "4.3.0",
     "@astrojs/rss": "4.0.11",
