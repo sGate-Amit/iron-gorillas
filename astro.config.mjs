@@ -7,4 +7,7 @@ export default defineConfig({
   site: "https://example.com",
   output: "static",
   integrations: [mdx(), sitemap()],
+  build: {
+    inlineStylesheets: "never"
+  }
 });
