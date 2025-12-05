@@ -6,7 +6,7 @@
     "@astrojs/mdx": "4.3.0",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.4.1",
-    "@astrojs/static": "^5.0.0"
+    "@astrojs/static": "^5.0.0",
     "astro": "5.10.1",
     "typescript": "5.8.3"
   },
