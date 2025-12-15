@@ -1,9 +1,17 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
+
 export default defineConfig({
   site: "https://example.com",
-  output: "static",
-  integrations: [mdx(), sitemap()],
+  output: "hybrid",
+  adapter: cloudflare(),
+  integrations: [mdx()],
+  vite: {
+    build: {
+      sourcemap: false,
+      minify: "esbuild",
+    },
+  },
 });
