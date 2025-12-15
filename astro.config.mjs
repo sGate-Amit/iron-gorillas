@@ -5,6 +5,6 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://example.com",
-  output: "static",
+  output: "hybrid",
   integrations: [mdx(), sitemap()],
 });
